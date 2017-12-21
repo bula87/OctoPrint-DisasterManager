@@ -65,6 +65,7 @@ class disaster_manager(octoprint.plugin.StartupPlugin,
         self.lastPrintState_ = payload['state_id']
 
     def checkFilamentMovement(self):
+        self._logger.info("checkFilamentMovement")
         printer_profile = self._printer_profile_manager.get_current_or_default()
         extrusionFromGcode = self.filamentCounter_.get_extrusion_gcode()
         extrusionFromSensor = self.filamentCounter_.get_extrusion_sensor()

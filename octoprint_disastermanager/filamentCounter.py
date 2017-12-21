@@ -6,7 +6,6 @@ __license__ = "GNU Affero General Public License http://www.gnu.org/licenses/agp
 __copyright__ = "Copyright (C) 2017 Wojciech Koprowski - Released under terms of the AGPLv3 License"
 
 import re
-import octoprint.plugin
 
 class filamentCounter(object):
 
@@ -31,7 +30,6 @@ class filamentCounter(object):
         self.totalExtrusion = [0.0] * tools
 
     def parse(self, gcode, cmd):
-        self._logger.info("parsing")
         if gcode is None:
             return
 
