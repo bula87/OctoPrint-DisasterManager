@@ -30,6 +30,7 @@ class filamentCounter(object):
         self.totalExtrusion = [0.0] * tools
 
     def parse(self, gcode, cmd):
+        self._logger.info("parsing")
         if gcode is None:
             return
 
