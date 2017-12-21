@@ -46,7 +46,7 @@ class disaster_manager(octoprint.plugin.StartupPlugin,
         if payload['state_id'] == "PRINTING":
             if self.lastPrintState == "PAUSED":
                 # resuming print from pause state
-                #self.filamentCounter_.reset_extruded_length()
+                self.filamentCounter_.reset_extruded_length()
             else:
                 # starting new print
                 self.filamentCounter_.reset()
