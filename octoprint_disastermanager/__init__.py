@@ -69,7 +69,7 @@ class disaster_manager(octoprint.plugin.StartupPlugin,
         printer_profile = self._printer_profile_manager.get_current_or_default()
         extrusionFromGcode = self.filamentCounter_.get_extrusion_gcode()
         extrusionFromSensor = self.filamentCounter_.get_extrusion_sensor()
-        numTools = min(printer_profile['extruder']['count'], len(extrusion))
+        numTools = min(printer_profile['extruder']['count'], len(extrusionFromGcode))
         currentTool = filamentCounter_.get_current_tool();
 
         for tool in xrange(0, numTools):
