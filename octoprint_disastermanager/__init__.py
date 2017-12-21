@@ -20,7 +20,7 @@ class disaster_manager(octoprint.plugin.StartupPlugin,
         self.filamentCounter_ = None
         self.lastPrintState_ = None
         self.filamentCounterEnabled_ = False
-        self.pauseEnabled_ = False
+        self.pauseEnabled_ = True # False
 
     def on_after_startup(self):
         self._logger.info("Disaster!")
