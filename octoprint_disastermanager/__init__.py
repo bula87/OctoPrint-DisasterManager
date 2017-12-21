@@ -83,9 +83,9 @@ class disaster_manager(octoprint.plugin.StartupPlugin,
 
     # Protocol hook
     def filament_counter(self, comm_instance, phase, cmd, cmd_type, gcode, *args, **kwargs):
-        self._logger.info("gcode sent")
+        #self._logger.info("gcode sent")
         if self.filamentCounterEnabled_:
-            self._logger.info("filament enabled")
+            #self._logger.info("filament enabled")
             self.filamentCounter_.parse(gcode, cmd)
             if self.pauseEnabled_ and not self.checkFilamentMovement():
                 self._logger.info("Filament stuck, pausing print")
