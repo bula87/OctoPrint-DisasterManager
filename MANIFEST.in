@@ -1,0 +1,4 @@
+include README.md
+recursive-include octoprint_disastermanager/templates *
+recursive-include octoprint_disastermanager/translations *
+recursive-include octoprint_disastermanager/static *
