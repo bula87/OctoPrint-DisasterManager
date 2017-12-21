@@ -44,7 +44,7 @@ class disaster_manager(octoprint.plugin.StartupPlugin,
 
     def on_printer_state_changed(self, payload):
         if payload['state_id'] == "PRINTING":
-            if self.lastPrintState == "PAUSED":
+            if self.lastPrintState_ == "PAUSED":
                 # resuming print from pause state
                 self.filamentCounter_.reset_extruded_length()
             else:
@@ -55,14 +55,14 @@ class disaster_manager(octoprint.plugin.StartupPlugin,
             self._logger.debug("Printer State: %s" % payload["state_string"])
             self._logger.debug("Odometer: %s" % ("On" if self.filamentCounterEnabled_ else "Off"))
 
-        elif self.lastPrintState == "PRINTING":
+        elif self.lastPrintState_ == "PRINTING":
             # print state changed from printing to something else => update filament usage
             self._logger.debug("Printer State: %s" % payload["state_string"])
             if self.filamentCounterEnabled_:
                 self.filamentCounterEnabled_ = False  # disabled because we don't want to track manual extrusion
 
         # update last print state
-        self.lastPrintState = payload['state_id']
+        self.lastPrintState_ = payload['state_id']
 
     def checkFilamentMovement(self):
         printer_profile = self._printer_profile_manager.get_current_or_default()
