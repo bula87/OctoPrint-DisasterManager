@@ -78,7 +78,7 @@ class filamentCounter(object):
         return self.maxExtrusion
 
     def get_extrusion_sensor(self):
-        return 20
+        return [20]
 
     def get_current_tool(self):
         return self.currentTool
