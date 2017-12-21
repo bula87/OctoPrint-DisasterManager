@@ -110,4 +110,5 @@ __plugin_name__ = "Disaster Manager"
 __plugin_implementation__ = disaster_manager()
 
 __plugin_hooks__ = { "octoprint.plugin.softwareupdate.check_config": __plugin_implementation__.get_version_info,
-                     "octoprint.comm.protocol.gcode.sent": __plugin_implementation__.filament_counter
+                     "octoprint.comm.protocol.gcode.sent": __plugin_implementation__.filament_counter }
+
