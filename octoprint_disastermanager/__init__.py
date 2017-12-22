@@ -14,7 +14,11 @@ from .filamentCounter import filamentCounter
 class disaster_manager(octoprint.plugin.StartupPlugin,
                        octoprint.plugin.TemplatePlugin,
                        octoprint.plugin.SettingsPlugin,
+											 octoprint.plugin.AssetPlugin,
                        octoprint.plugin.EventHandlerPlugin):
+
+		def get_assets(self):
+				return dict(js=["js/disastermanager.js"])
 
     def __init__(self):
         self.filamentCounter_ = None
@@ -30,7 +34,11 @@ class disaster_manager(octoprint.plugin.StartupPlugin,
         self.filamentCounter_.set_g90_extruder(self._settings.getBoolean(["feature", "g90InfluencesExtruder"]))
 
     def get_settings_defaults(self):
-        return dict(enableFilamentCounter=True)
+        return dict(enableFilamentCounter=True,
+										threshold=5)
+
+		def get_template_vars(self):
+        return dict(threshold=self._settings.get(["threshold"]))
 
     def on_settings_save(self, data):
         self.filamentCounter_.set_g90_extruder(self._settings.getBoolean(["feature", "g90InfluencesExtruder"]))
