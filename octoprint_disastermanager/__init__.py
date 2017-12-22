@@ -23,8 +23,8 @@ class disaster_manager(octoprint.plugin.StartupPlugin,
         self.filamentCounterEnabled_ = False
         self.pauseEnabled_ = True # False
 
-		def get_assets(self):
-        return dict(js=["js/disastermanager.js"])
+    def get_assets(self):
+		    return dict(js=["js/disastermanager.js"])
 				
     def on_after_startup(self):
         self._logger.info("Disaster!")
