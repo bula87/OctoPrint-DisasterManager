@@ -14,7 +14,7 @@ from .filamentCounter import filamentCounter
 class disaster_manager(octoprint.plugin.StartupPlugin,
                        octoprint.plugin.TemplatePlugin,
                        octoprint.plugin.SettingsPlugin,
-											 octoprint.plugin.AssetPlugin,
+                       octoprint.plugin.AssetPlugin,
                        octoprint.plugin.EventHandlerPlugin):
 
     def __init__(self):
@@ -24,8 +24,8 @@ class disaster_manager(octoprint.plugin.StartupPlugin,
         self.pauseEnabled_ = True # False
 
     def get_assets(self):
-		    return dict(js=["js/disastermanager.js"])
-				
+        return dict(js=["js/disastermanager.js"])
+        
     def on_after_startup(self):
         self._logger.info("Disaster!")
 
@@ -35,9 +35,9 @@ class disaster_manager(octoprint.plugin.StartupPlugin,
 
     def get_settings_defaults(self):
         return dict(enableFilamentCounter=True,
-										threshold=5)
+                    threshold=5)
 
-		def get_template_vars(self):
+    def get_template_vars(self):
         return dict(threshold=self._settings.get(["threshold"]))
 
     def on_settings_save(self, data):
